@@ -11,9 +11,10 @@ public class Main
   public static int countLength(String[] arr, int targetLength)
   {
     int count = 0;
-    for (int i = 0; i < arr.length[];i++)
+    for (int i = 0; i < arr.length;i++)
     {
-      if (arr.length[i] == targetLength)
+      String target = arr[i];
+      if (target.length() == targetLength)
       {
         count++;
       } 
@@ -23,19 +24,54 @@ public class Main
 
   public static int indexOf(double[] arr, double target)
   {
-    // replace with your code
+    for (int i = 0; i < arr.length;i++)
+    {
+      if (arr[i] == target)
+      {
+        return i;
+      }
+    }
     return -1;
   }
 
   public static boolean hasDuplicates(int[] arr)
   {
-    // replace with your code
+    for (int i = 0; i < arr.length;i++)
+    {
+      int target = arr[i];
+      for (int j = 1+1; j < arr.length;j++)
+      {
+        if(arr[j] == target)
+        {
+          return true;
+        }
+      }
+    }
     return false;
   }
 
-  public static String findMode(String[] arr)
+  public static int findMode(int[] arr)
   {
-    // replace with your code
-    return null;
+    int mode = arr[0];
+    int count = 0;
+    int maxCount = 0;
+    for(int i = 0; i < arr.length; i++)
+    {
+      int target = arr[i];
+      count = 0;
+      for (int j = 1+1; j < arr.length;j++)
+      {
+        if(arr[j] == target)
+        {
+          count++;
+        }
+      }
+      if (count > maxCount)
+      {
+        maxCount = count;
+        mode = target;
+      }
+    }
+    return mode;
   }
 }
